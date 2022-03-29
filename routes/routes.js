@@ -15,7 +15,7 @@ const upload = multer({
   storage: storage,
 });
 module.exports = function () {
-  routes.get("/", (req, res) => {});
+  routes.get("/", (req, res) => {return res.status(200).send("THE SERVER WORKS!!");});
   routes.post("/runOryza", upload.single("fileZip"), (req, res) => {
     compressing.zip
       .uncompress("./upload/" + req.file.filename, "./oryza_API")
